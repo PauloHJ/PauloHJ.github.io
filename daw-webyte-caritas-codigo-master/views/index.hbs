@@ -1,0 +1,100 @@
+<div id="index-banner" class="parallax-container">
+    <div  class="responsive-img"><img src="https://caritasqro.blob.core.windows.net/images/Caridad_F.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block flex center-flex">
+          <h2 class="center brown-text"><img src="https://caritasqro.blob.core.windows.net/images/donativo1.png" alt="Dona"></h2>
+          <h5 class="center">Dona con Nosotros</h5>
+
+          <p class="light center">Si tienes muebles, ropa, juguetes o cualquier cosa que quieras donar no dudes en venir con nosotros.</p>
+          <a href="/ayuda" class="waves-effect red darken-1 btn center" >Dona</a>
+        </div>
+        
+      </div>
+
+      <div class="col s12 m4">
+        <div class="row">
+          <div class="icon-block flex center-flex">
+            <h2 class="center brown-text"><img src="https://caritasqro.blob.core.windows.net/images/contacto1.png" alt="contacto"></h2>
+            <h5 class="center">Contáctanos</h5>
+          
+            <p class="light center">Ponte en contacto con nosotros para conocer más los programas que tenemos para la gente y
+              sepas a cuál apoyar.</p>
+            <a href="/contacto" class="waves-effect red darken-1 col xs11 btn center">Contáctanos</a>
+          </div>
+        </div>
+      </div>
+
+
+ 
+      <div class="col s12 m4">
+        <div class="icon-block flex center-flex">
+          <h2 class="center brown-text"><img src="https://caritasqro.blob.core.windows.net/images/nosotros.png" alt=""></h2>
+          <h5 class="center">Sobre Nosotros</h5>
+      
+          <p class="light center">Cáritas de Querétaro promueve la solidaridad y la justicia social hacia los más pobres y
+            excluidos.</p>
+          <a href="/nosotros" class="waves-effect red darken-1 btn center">Nosotros</a>
+        </div>
+      </div>
+      </div>
+      </div>
+      
+      <div class="section">
+        <div class="row">
+          <div class="center">
+            <h3 class="red-text text-darken-2"> Conoce nuestros proyectos</h3>
+          </div><br><br>
+      
+          {{#each projects}}
+          <div class="col s12 m4">
+      
+            <div class="card medium sticky-action">
+              <div class="card-image ">
+                <img class="activator" src="{{img}}">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{nombre}}<i
+                    class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{nombre}}<i class="material-icons right">close</i></span>
+                <p>{{descripcion}}</p>
+              </div>
+              <div class="card-action">
+                <a class="waves-effect red darken-2 btn center" href="/proyectos/{{id}}">Detalles</a>
+              </div>
+            </div>
+            
+      </div>
+      {{/each}}      
+      <br><br>
+      <div class="row">
+
+        </div>
+      <h3 class="red-text text-darken-2 center">  ¡Conocenos!  <br></h3>  
+      <iframe class="center" width="900" height="550" src="https://www.youtube.com/embed/eWrHjrn6zBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h4 class="red-text text-darken-2 center">  <br>CERTIFICACIONES</h4>
+
+      <div class="large-12 medium-12 small-12 columns">
+      <div class="row">
+      <div align="center">
+      <a href="https://confio.org.mx/inicio/" target="_blank"><img src="https://caritasdequeretaro.org/wp-content/uploads/2017/12/Logotipo-Sello-CONFIO-Final.png" width="20%" height="100%" class="imgCertif"></a>
+
+      <a href="https://www.cemefi.org/" target="_blank"><img src="https://caritasdequeretaro.org/wp-content/uploads/2015/10/LogoCEMEFI2.png" width="20%" height="100%" class="imgCertif"> </a>
+
+      <a href="https://www.juntadeasistenciaqro.org/" target="_blank"><img src="https://caritasdequeretaro.org/wp-content/uploads/2015/10/JAPqro-1.jpg" width="20%" height="100%" class="imgCertif"></a>
+        
+      </div>
+      </div>
+      </div>
+      </div>    
+  
+    </div>
+  </div>
+</div>

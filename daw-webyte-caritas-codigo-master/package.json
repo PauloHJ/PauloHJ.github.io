@@ -1,0 +1,39 @@
+{
+    "name": "AppCaritasWebyte",
+    "version": "1.0.0",
+    "description": "Aplicación de caritas ",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "Team WeByte ITESM",
+    "license": "MIT",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
+    "dependencies": {
+        "azure-storage": "^2.8.0",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.3",
+        "dotenv": "^6.2.0",
+        "express": "^4.16.4",
+        "express-handlebars": "^3.0.2",
+        "express-session": "^1.15.6",
+        "handlebars-dateformat": "^1.1.1",
+        "handlebars-extend-block": "^1.0.0",
+        "into-stream": "^5.1.0",
+        "multer": "^1.4.1",
+        "nodemailer": "^6.1.1",
+        "nodemon": "^1.18.10",
+        "paypal-rest-sdk": "^1.8.1",
+        "pg": "^7.8.2",
+        "pg-hstore": "^2.3.2",
+        "uuid": "^3.3.2"
+    }
+}

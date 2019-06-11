@@ -1,0 +1,121 @@
+<section class="row">
+  <h3 class="center col s12">Nuestros proyectos</h3>
+  <div class="col s12 m3">
+    <div class="card">
+      <div class="card-content">
+        <h4>Filtros</h4>
+        <div class='input-field'>
+          <input class='validate' type='text' name='name' id='name' />
+          <label for='name'>Busca por nombre: </label>
+        </div>
+        <div class="block">    
+          <h5>Por programa</h5>
+          {{#each sub_programas}}
+            <p>
+              <label>
+                <input class="with-gap" value={{id}} name="programa" id="programa{{id}}" type="radio" />
+                <span>{{nombre}}</span>
+              </label>
+            </p>
+          {{/each}}
+        </div>
+
+        <div class="block">    
+          <h5>Por categorías</h5>
+          {{#each categorias}}
+            <p>
+              <label>
+                <input class="with-gap" value={{id}} name="categoria" id="categoria{{id}}" type="radio" />
+                <span>{{nombre}}</span>
+              </label>
+            </p>
+          {{/each}}
+        </div>
+
+        
+        {{!-- <div id="test-slider"></div> --}}
+      </div>
+    </div>
+  </div>
+  <div class="row col s12 m9 cardContainer">
+    {{#if proyectos}}
+      {{#each proyectos}}
+        <div class="col s12 m4">
+              
+          <div class="card medium sticky-action">
+            <div class="card-image ">
+              <img class="activator" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{nombre}}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{nombre}}<i class="material-icons right">close</i></span>
+              <p>{{descripcion}}</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect red darken-1 btn" href="/proyectos/{{id}}">Detalles</a>
+            </div>
+          </div>
+              
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</section>
+
+<script>
+  $('document').ready(() => {
+
+    let createCard = ({img, nombre, id, descripcion}) => {
+      let col = `
+        <div class="col s12 m4">
+          <div class="card small sticky-action">
+            <div class="card-image ">
+              <img class="activator" src="${img}">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">${nombre}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">${nombre}<i class="material-icons right">close</i></span>
+              <p>${descripcion}</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect red darken-1 btn" href="/proyectos/${id}">Detalles</a>
+            </div>
+          </div>
+        </div>
+      `
+
+      return col;
+    }
+    
+    let byName, byPrograma, byCategoria;
+
+    $("input[name='programa']:radio").change(e => {
+      byPrograma = $('input:radio[name=programa]:checked').val();
+      get({byPrograma, byName, byCategoria});
+    });
+
+    $("input[name='categoria']:radio").change(e => {
+      byCategoria = $('input:radio[name=categoria]:checked').val();
+      get({byCategoria, byName, byPrograma});
+    });
+
+    $('#name').change(e => {
+      byName = e.target.value;
+      get({byPrograma, byName, byCategoria});
+    });
+
+    let get = data => {
+      $.post('/proyectos', data, response => {
+        console.log(response.proyectos.rows);
+        $('.cardContainer').html('');
+        response.proyectos.rows.forEach(proyecto => {
+          $('.cardContainer').append(createCard(proyecto));
+        });
+      });
+    }
+  });
+</script>

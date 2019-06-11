@@ -1,0 +1,33 @@
+<h1>Listado de beneficiarios</h1>
+
+ <a class="waves-effect waves-light red darken-2 btn-large" href="/dashboard/beneficiarios/nuevo">Nuevo</a>
+
+<table class="striped">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>CURP</th>
+              <th>Sexo</th>
+              <th>Fecha de nacimiento</th>
+              <th></th>
+              <th></th>
+          </tr>
+          
+        </thead>
+        <tbody>
+          {{#each benef}}
+            <tr>
+                <td>{{nombre}} {{apellido}}</td>
+                {{#if curp}}
+                <td>{{curp}}</td>
+                {{else}}
+                <td>ND</td>
+                {{/if}}
+                <td>{{sexo}}</td>
+                <td>{{dateFormat nacimiento "DD/MM/YYYY"}}</td>
+                <td><a href="/beneficiarios/{{id}}" class="waves-effect waves-light red darken-2 btn">Consultar</a></td>
+                <td><a href="/dashboard/beneficiarios/modificar/{{id}}" class="waves-effect waves-light red darken-2 btn">Editar</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+      </table>

@@ -1,0 +1,43 @@
+{{#if container}}
+  <div class="container">
+{{/if}}
+  <div class="card separate">
+    <div class="card-content icon-block flex center-flex">
+      <h3 class="center">Bienvenido/a</h3>
+      <h4 class="grey-text text-darken-3 center">{{user.fullName}}</h4>
+      <br>
+      <a href="/dashboard/modificarInformacion" class="btn waves-effect  red darken-1 center ">Edita tu información</a>
+      <br>
+      <a href="/dashboard/cambiarcontrasena" class="btn waves-effect  red darken-1 center ">Cambia tu contraseña</a>
+    </div>
+  </div>
+  <div class="row">
+    {{#if proyectos}}
+      <h5 class="center">Proyectos Donados </h5> <h5 class="center">¡Gracias! <br> Siguenos ayudando, tu donación es muy valiosa para nosotros.</h5> </h5>
+      {{#each proyectos}}
+        <div class="col s12 m4">
+          <div class="card medium sticky-action hover">
+            <div class="card-image ">
+              <img class="activator" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{nombre}}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{nombre}}<i class="material-icons right">close</i></span>
+              <p>Folio: {{folio}}</p>
+              <p>Monto donado: ${{monto}} MXN</p>
+            </div>
+            <div class="card-action">
+              <a href="/proyectos/{{proyecto_id}}">Detalles</a>
+              Monto donado: ${{monto}} MXN
+            </div>
+          </div>
+              
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+{{#if container}}
+  </div>
+{{/if}}

@@ -1,0 +1,106 @@
+<div class="container card separate">
+	<div class="col s12 center card-image">
+		<img src="{{proyecto.img}}" alt="Imagen del proyecto">
+	</div>
+	<div class="card-content">
+		<span class="flow-text"><h1 class="col s12 m6 no-margin-top">{{proyecto.nombre}}</h1></span>
+		<h6 class="grey-text text-darken-2">Programa: {{proyecto.programa.nombre}}</h6>
+		<h6 class="grey-text text-darken-2">Subprograma: {{proyecto.programa.subPrograma.nombre}}</h6>
+		<h6>Categorias:</h6>
+		<ul> 
+			{{#each categorias}}
+			<li> - {{ this }}</li>
+			{{/each}}
+		</ul>
+		<br>
+		<div class="divider"></div> 
+		<br>
+		<div class="row">
+			<div class="col s12 m8 ">
+				<h4>Acerca de</h4>
+				<p>{{proyecto.descripcion}}</p> 
+				<h4>Desafios</h4>
+				<p>{{proyecto.desafios}}</p>
+				<h4>¿A quienes apoyarías?</h4>
+				<p>{{proyecto.apoyarias}}</p>
+			</div>
+			<div class="col s12 m4 ">
+				<h4 class=" donacion-title">{{#if session.user}}Dona a este Proyecto {{else}} Inicia sesión para donar {{/if}} </h4>
+				{{#if session.user}}
+				<p class="input-field">
+					<label for="amount">Monto a donar ($10)</label>
+					<input type="number" id="amount" name="amount">
+				</p>
+				{{/if}}
+					
+				<div id="pp-container">
+					<div id="pp-button"></div>
+				</div>
+				
+				<br>
+				<blockquote>
+					<ul>
+						<li> <h5 id="totalDonadores">{{totalDonadores}}</h5> </li>
+						<li>Patrocinadores</li>
+						<li> <h5 id="totalDonaciones">${{totalDonaciones}}</h5> </li>
+						<li>Contribuido</li>
+						<li> <h5>${{proyecto.solicitado}}</h5> </li>
+						<li>Solicitado</li>
+						<li> <h5>{{proyecto.direccion}}, {{proyecto.municipio.nombre}}, {{proyecto.municipio.estado}}</h5> </li>
+						<li>Ubicación</li>
+						<li> <h5>{{proyecto.estatus}}</h5> </li>
+						<li>Estatus</li>
+					</ul>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src={{paypal_string}}></script>
+{{#if session.user}}
+<script>
+  paypal.Buttons({
+    createOrder: (data, actions) => {
+      // Set up the transaction
+			let amount = $('#amount').val();
+			
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: amount > 0 ? amount : 10,
+          }
+        }]
+      });
+    },
+		onApprove: (data, actions) => {
+			M.toast({html: 'Donación Realizada'});
+			return actions.order.capture().then(details => {
+				console.log(details);
+				switch(details.status) {
+					case "COMPLETED": 
+						$.post(window.location, {
+							monto: details.purchase_units[0].amount.value,
+							paymentId: details.purchase_units[0].payments.captures[0].id
+						}, data => {
+							console.log(data);
+							if(data.status === 'ok') {
+								$('#totalDonadores').text = data.newDonadores;
+								$('#totalDonaciones').text = data.newDonaciones;
+							} else {
+								M.toast({html: 'Ocurrió un error, intentalo de nuevo'});
+							}
+						});
+
+						console.log(details.purchase_units[0].amount.value);
+
+						break;
+					default:
+						M.toast({html: 'Ocurrió un error, intentalo de nuevo'});
+						break;
+				}
+			});
+		}
+  }).render('#pp-button');
+</script>
+{{/if}}

@@ -1,0 +1,23 @@
+<h1>Listado de noticias</h1>
+
+<a class="waves-effect red darken-1 btn-large" href="/dashboard/blog/nuevo">Nuevo post</a>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Fecha</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  {{#each posts}}
+    <tr>
+      <td>{{titulo}}</td>
+      <td>{{dateFormat fecha "DD/MM/YYYY"}}</td>
+      <td><a href="/dashboard/blog/editar/{{id}}" class="waves-effect red darken-1 btn">Editar</a></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

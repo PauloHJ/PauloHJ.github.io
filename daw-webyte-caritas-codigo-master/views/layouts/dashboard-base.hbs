@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CáritasQro</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+  {{!-- <link href="https://caritasqro.blob.core.windows.net/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection" /> --}}
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://caritasqro.blob.core.windows.net/javascripts/init.js"></script>
+
+</head>
+<body>
+  
+  <main class="row">
+    <div class="collection sidebar row col s3 white-text red darken-2 darken-2">
+      <li class="collection-header col s12 center-flex">
+        <div >
+          <img src="https://caritasqro.blob.core.windows.net/images/logoHeader.png"  class="responsive-img" >
+        </div>
+        <p class="collection-title white-text">{{user.fullName}}</p>
+      </li>
+      <a href="/dashboard/proyectos/" class="collection-item avatar red darken-2 white-text">
+        <i class="material-icons circle red darken-2">chrome_reader_mode</i>
+        Proyectos
+      </a>
+      <a href="/dashboard/beneficiarios" class="collection-item avatar red darken-2 white-text">
+        <i class="material-icons circle red darken-2">accessibility_new</i>
+        Beneficiarios
+      </a>
+      
+      <a href="/dashboard/blog" class="collection-item avatar red darken-2 white-text">
+        <i class="material-icons circle red darken-2">note_add</i>
+        Escribir Post
+      </a>
+      <a href="/dashboard/canalizaciones" class="collection-item avatar red darken-2 white-text">
+        <i class="material-icons circle red darken-2">assessment</i>
+        Canalizaciones
+      </a>
+      {{#if createStaff}}
+        <a href="/dashboard/nuevoStaff" class="collection-item avatar red darken-2 white-text">
+          <i class="material-icons circle red darken-2">person_add</i>
+          Nuevo Staff
+        </a>
+      {{else}}
+        <a href="#" title="No tienes permiso para crear un nuevo usuario tipo Staff" class="collection-item avatar red darken-2 white-text">
+          <i class="material-icons circle red darken-2">person_add_disabled</i>
+          Nuevo Staff
+        </a>
+      {{/if}}
+      <a href="/logout" class="collection-item avatar red darken-2 white-text">
+        <i class="material-icons circle red darken-2">close</i>
+        Salir
+      </a>
+    </div>
+
+    <section id="content" class="col s9">
+        <div class="container">{{{body}}}</div>
+    </section>
+
+  </main>
+  
+  </body>
+</html>

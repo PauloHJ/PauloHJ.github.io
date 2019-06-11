@@ -1,0 +1,99 @@
+
+<center>
+  <div class="section"></div>
+
+  <div class="container">
+    <div class=" white row card" style="display: inline-block; padding: 32px 48px 0px 48px;">
+      <h4>Regístrate como Donante</h4>
+      <p id="err" class="err"></p>
+      <p id="success" class="success"></p>
+
+      <form id="registroForm" class="col s12" method="POST">
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='text' name='username' id='username' />
+            <label for='username'>Nombre de Usuario</label>
+          </div>
+          <div class='input-field col s12'>
+            <input class='validate' type='text' name='name' id='name' />
+            <label for='name'>Nombre</label>
+          </div>
+        </div>
+        
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='text' name='lastname' id='lastname' />
+            <label for='lastname'>Apellido</label>
+          </div>
+        </div>
+        
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='email' name='email' id='email' />
+            <label for='email'>Correo electrónico</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='password' name='password' id='password' />
+            <label for='password'>Contraseña</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='password' name='password2' id='password2' />
+            <label for='password2'>Confirme su contraseña</label>
+          </div>
+        </div>
+
+        <br />
+      </form>
+        <center>
+          <div class='row'>
+            <button id="registro" class='col s12 btn btn-large waves-effect indigo'>Registrarse</button>
+          </div>
+        </center>
+    </div>
+  </div>
+  <p>¿Ya tienes una cuenta? <a href="/login">Ingresa aquí</a></p>
+</center>
+
+<script>
+  $('document').ready(() => {
+    const errCont = $('#err');
+    const succCont = $('#success');
+    errCont.toggleClass('hidden');
+    succCont.toggleClass('hidden');  
+
+    const registroForm = $('#registroForm');
+    const userName = $('#username');
+    const name = $('#name');
+    const lastname = $('#lastname');
+    const email = $('#email');
+    const password = $('#password');
+    const password2 = $('#password2');
+    
+    const click = e => {
+      $.post('/registro', registroForm.serialize(), data => {
+        if(data.status === 'ok') {
+           window.scrollTo(0,0);
+          if(succCont.hasClass('hidden'))
+            succCont.toggleClass('hidden');
+          succCont.html("Se ha registrado exitosamente");
+        } else if(data.status === 'err') {
+          window.scrollTo(0,0);
+          if(errCont.hasClass('hidden'))
+            errCont.toggleClass('hidden');
+          errCont.html(data.err);
+        }
+      });
+    };
+
+    $('#registro').click(click);
+
+    $('input').keypress();
+  });
+</script>

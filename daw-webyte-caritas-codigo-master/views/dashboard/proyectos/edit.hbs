@@ -1,0 +1,247 @@
+<h1>Modificar Proyecto</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="input-field col m6 s12">
+          <input id="name" type="text" class="validate" name="name" value="{{proyecto.nombre}}" required>
+          <label for="name">Nombre</label>
+        </div>
+        <div class="input-field col m6 s12">
+          <input id="last_name" type="text" class="validate"
+            name="desc" value="{{proyecto.descripcion}}" required>
+          <label for="last_name">Descripción corta</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col m6 s12">
+          <input id="solicitado" type="number" class="validate" name="solicitado" value="{{proyecto.solicitado}}" required>
+          <label for="solicitado">Monto Solicitado</label>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="input-field col m6 s12">
+          <select name="state" id="state" class="browser-default" required>
+            <option value="" disabled selected>Seleccione...</option>
+            <option value='AGUASCALIENTES'>AGUASCALIENTES</option>
+            <option value='BAJA CALIFORNIA'>BAJA CALIFORNIA</option>
+            <option value='BAJA CALIFORNIA SUR'>BAJA CALIFORNIA SUR</option>
+            <option value='CAMPECHE'>CAMPECHE</option>
+            <option value='CHIAPAS'>CHIAPAS</option>
+            <option value='CHIHUAHA'>CHIHUAHA</option>
+            <option value='CDMX'>CDMX</option>
+            <option value='COAHUILA'>COAHUILA</option>
+            <option value='COLIMA'>COLIMA</option>
+            <option value='DURANGO'>DURANGO</option>
+            <option value='GUANAJUATO'>GUANAJUATO</option>
+            <option value='GUERRERO'>GUERRERO</option>
+            <option value='HIDALGO'>HIDALGO</option>
+            <option value='JALISCO'>JALISCO</option>
+            <option value='EDOMEX'>EDOMEX</option>
+            <option value='MICHOACAN'>MICHOACAN</option>
+            <option value='MORELOS'>MORELOS</option>
+            <option value='NAYARIT'>NAYARIT</option>
+            <option value='NUEVO LEON'>NUEVO LEON</option>
+            <option value='OAXACA'>OAXACA</option>
+            <option value='PUEBLA'>PUEBLA</option>
+            <option value='QUERETARO'>QUERETARO</option>
+            <option value='QUINTANA ROO'>QUINTANA ROO</option>
+            <option value='SAN LUIS POTOSI'>SAN LUIS POTOSI</option>
+            <option value='SINALOA'>SINALOA</option>
+            <option value='SONORA'>SONORA</option>
+            <option value='TABASCO'>TABASCO</option>
+            <option value='TAMAULIPAS'>TAMAULIPAS</option>
+            <option value='TLAXCALA'>TLAXCALA</option>
+            <option value='VERACRUZ'>VERACRUZ</option>
+            <option value='YUCATAN'>YUCATAN</option>
+            <option value='ZACATECAS'>ZACATECAS</option>
+ 
+          </select>
+          <label class="active">Estado</label>
+        </div>
+        <div class="input-field col m6 s12" >
+          <select name="city" id="city" class="browser-default" required>
+          </select>
+          <label class="active">Municipio</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="address" name="address"type="text" class="validate"  value="{{proyecto.direccion}}" required>
+          <label for="address">Dirección</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col m6 s12">
+          Fecha de inicio
+          <input type="date" name="inicio" id="inicio" value="{{dateFormat proyecto.inicio "YYYY-MM-DD"}}" required>
+        </div>
+        <div class="input-field col m6 s12">
+          Fecha de fin
+          <input type="date" name="final" id="final" value="{{dateFormat proyecto.final "YYYY-MM-DD"}}" required>
+          
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col m4 s12">
+          <select id="lineadeaccion" class="browser-default" required>
+            <option value="" disabled selected>Seleccione...</option>
+            <option value='ASISTENCIA SOCIAL'>ASISTENCIA SOCIAL</option>
+            <option value='PROMOCION HUMANA'>PROMOCION HUMANA</option>
+          </select>
+          <label for="lineadeaccion" class="active">Linea de acción</label>
+        </div>
+
+        <div class="input-field col m4 s12">
+          <select id="program" class="browser-default" required>
+          </select>
+          <label for="program" class="active">Programa</label>
+        </div>
+
+        <div class="input-field col m4 s12">
+          <select id="sub" name="sub" class="browser-default" required>
+          </select>
+          <label for="sub" class="active">Sub Programa</label>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="input-field col m6 s12">
+          <select id="status" name="status" class="browser-default" required>
+            <option value="" disabled selected>Seleccione un estatus</option>
+            <option value="NUEVO">NUEVO</option>
+            <option value="PROCESO">PROCESO</option>
+            <option value="TERMINADO">TERMINADO</option>
+          </select>
+          <label for="first_name" class="active">Estatus</label>
+        </div>
+        <div class="input-field col m6 s12">
+          <input id="observation" type="text" class="validate" name="observation">
+          <label for="observation">Observaciones</label>
+        </div>
+        <div class="input-field col s12">
+          <select multiple name="categorias" id= "categorias">
+            <option value="" disabled selected>Selecciona las categorias</option>
+            <option value="0">Niños</option>
+            <option value="1">Mujeres</option>
+            <option value="2">Becas</option>
+            <option value="3">Salud</option>
+            <option value="4">Educacion</option>
+            <option value="5">Jovenes</option>
+            <option value="6">Adultos mayores</option>
+            <option value="7">Rural</option>
+            <option value="8">Urbano</option>
+            <option value="9">Otros</option>
+
+          </select>
+          <label>Categorias</label>
+  </div>
+      </div>
+
+      <input type="file" name="upload" id="upload">
+
+      
+      <button class="btn waves-effect waves-light" type="submit" name="action">Registrar</button>
+
+    </form>
+ 
+
+  <!--Testing JS for the cities-->
+  <script src="/javascripts/mx-data.js"></script>
+  <script src="/javascripts/new-proj-form.js"></script>
+  <script>
+    let pr;
+
+    function geoPopulate(){
+      const stateShort = pr.municipio.estado;
+      const state = map[stateShort];
+
+      //change value
+      $("#state").val(state);
+      //populate cities
+      //get the cities
+      const cities = mx[$('#state').val()];
+      //we have the cities
+      //clear the select
+      $('#city').empty();
+      //populate the cities
+      for(const c in cities){
+          const city = cities[c];
+          $('#city').append('<option value="'+city.id+'">'+city.nombre+'</option>');
+      }
+
+      //set the correct value
+
+      $("#city").val(pr.municipio.id);
+
+
+    }
+
+    function subProgramPopulate(){
+      const p = pr.programa;
+      $('#lineadeaccion').val(p.lineadeaccion);
+
+      const progs = root[$('#lineadeaccion').val()];
+      //clear the select
+      $('#program').empty();
+      //populate the program
+      $('#program').append('<option value="" disabled selected>Seleccione...</option>')
+      for(const p in progs){
+          $('#program').append(
+              '<option value="'+p+'">'+p+'</option>'
+          );
+      }
+
+      $('#program').val(p.nombre);
+
+      const la = $('#lineadeaccion').val();
+      const pro = $('#program').val();
+
+    const subs = root[la][pro];
+
+    $('#sub').empty();
+
+    for(i in subs){
+        const sub = subs[i];
+        console.log(sub);
+        $('#sub').append(
+            '<option value="'+sub.id+'">'+sub.sub+'</option>'
+        )
+    }
+
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+
+
+    //Populate the rest here using JS and a really badly optimized API here
+
+
+    $.getJSON("/dashboard/proyectos/json/"+location.pathname.split("/").pop(), data => {
+      pr = data;
+      //poblar el estado y la ciudad
+      geoPopulate();
+      //ahora poblar el estatus
+      $("#status").val(pr.estatus);
+      //ahora poblar las lineas de accion
+      subProgramPopulate();
+
+      //Categorias
+      const cat = pr.categorias.split(',');
+
+      $('#categorias').val(cat);
+
+    })
+
+  });
+  </script>

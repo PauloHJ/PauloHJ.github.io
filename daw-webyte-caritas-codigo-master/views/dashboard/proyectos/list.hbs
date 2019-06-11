@@ -1,0 +1,31 @@
+<h1>Lista de proyectos</h1>
+
+<a href="/dashboard/proyectos/nuevo" class="waves-effect red darken-2 btn center">Registrar nuevo proyecto</a>
+ 
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Fecha de inicio</th>
+      <th>Fecha de final</th>
+      <th>Estatus</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each proj}}
+    <tr>
+      <td> {{nombre}} </td>
+      <td> {{descripcion}} </td>
+      <td>{{dateFormat inicio "DD/MM/YYYY"}}</td>
+      <td>{{dateFormat final "DD/MM/YYYY"}}</td>
+      <td> {{estatus}} </td>
+      <td><a href="/proyectos/{{id}}" class="waves-effect red darken-2 btn center">Ver</a></td>
+      <td><a href="/dashboard/proyectos/editar/{{id}}" class="waves-effect red darken-2 btn center">Editar</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

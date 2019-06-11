@@ -1,0 +1,57 @@
+
+<center>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class=" white row card" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+          <h4 class="red-text text-darken-2">Inicio de Sesión</h4>
+
+          {{#if error}}
+          <h5>Error: {{error}}</h5>
+          {{/if}}
+          
+          <p>
+            Se ha enviado un código
+            de recuperación a su correo electrónico.
+            Introduzcalo.
+          </p>
+
+          <form class="col s12" method="post" method="POST">
+            
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='text' name='token' id='token' />
+                <label for='token'>Introduzca su código de recuperación</label>
+              </div>
+            </div>
+
+            <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='password' name='pass1' id='pass1' />
+            <label for='pass1'>Nueva Contraseña</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='password' name='pass2' id='pass2' />
+            <label for='pass2'>Confirme su contraseña</label>
+          </div>
+        </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Cambiar contraseña</button>
+              </div>
+            </center>
+          </form>
+        </div>
+      </div>
+      <p>¿Quieres donar? <a href="/register">Crea tu cuenta aquí</a></p>
+    </center>
+
+    <br>
+    <br>
+    

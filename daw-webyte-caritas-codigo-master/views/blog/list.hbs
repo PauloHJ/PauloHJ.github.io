@@ -1,0 +1,26 @@
+<section class="row">
+  <h3 class="center col s12">Noticias</h3>
+  
+  <div class="container">
+    {{#if posts}}
+      {{#each posts}}
+        <div class="col s12 m4">
+          <div class="card medium">
+              <div class="card-image">
+                <img src="{{fotourl}}">
+                
+              </div>
+              <div class="card-content">
+                <span class="card-title">{{titulo}}</span>
+                <p>{{dateFormat fecha "DD/MM/YYYY"}}</p>
+              </div>
+              <div class="card-action">
+                <a href="/blog/{{id}}">Ver mas</a>
+              </div>
+            </div>    
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</section>
+

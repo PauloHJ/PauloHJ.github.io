@@ -1,0 +1,16 @@
+<div class="container card separate">
+	<div class="col s12 center card-image hoverable">
+		<img src="{{proyecto.fotourl}}" alt="Imagen de la noticia">
+	</div>
+	<div class="card-content">
+		<span class="flow-text"><h1 class="col s12 m6 no-margin-top">{{proyecto.titulo}}</h1></span>
+		{{dateFormat proyecto.fecha "DD/MM/YYYY"}}
+		<hr>
+		<div class="row">
+			<div class="col s12 m8 ">
+				<p>{{proyecto.cuerpo}}</p>
+			</div>
+			
+		</div>
+	</div>
+</div>

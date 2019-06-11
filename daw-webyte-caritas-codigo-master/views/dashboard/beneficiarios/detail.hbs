@@ -1,0 +1,229 @@
+        <!--Header -->
+        <div class="row">
+            <div class="row valign-wrapper"> <br>
+                <div class=" col s12">
+                    <h3 class="card-panel red darken-1 center hoverable"><span class="white-text">Beneficiario</span></h3>
+                    <h3 class="center">{{beneficiario.nombre}} {{beneficiario.apellido}}</h3>
+                    <div class="container"></div>
+                    <h4 class="center">Informacion Personal</h4>
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+
+            <!--_____________DATOS BENEFICIARIO___________-->
+        <blockquote>
+        <div class="row">
+             <div class="col s4 grey lighten-4 ">
+                
+                     <label for="first_name"><h6>Sexo</h6></label>
+                     <h7>{{beneficiario.sexo}}</h7>
+                </div>
+                    <div class="col s4 grey lighten-4 ">
+                            <label for="first_name"><h6>Fecha de Nacimiento</h6></label>
+                            <h7>{{dateFormat beneficiario.nacimiento "DD/MM/YYYY"}}</h7>
+                    </div>
+                    <div class="col s4 grey lighten-4 ">
+                
+                     <label for="first_name"><h6>¿Es extranjero?</h6></label>
+                        
+                     <h7 id="checkExtranjero"><h7>{{beneficiario.extranjero}}</h7>
+                </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="col s4 grey lighten-4">
+                                            
+                    <label for="first_name"><h6>Estado Civil</h6></label>
+                        <h7>{{beneficiario.estadocivil}}</h7>
+                    </div>
+                    <div class="col s4 grey lighten-4">
+                                            
+                    <label for="first_name"><h6>¿Es Indigente?</h6></label>
+                        <h7 id="checkIndigente"> <h7>{{beneficiario.indigente}}</h7>
+                    </div>
+                    <div class="col s4 grey lighten-4"><label for="first_name"><h6>Profesión</h6></label>
+                        <h7>{{beneficiario.profesion}}</h7>
+                    </div>
+        
+                    <div class="col s4 grey lighten-4">
+                        <label for="first_name">
+                            <h6>Colonia</h6>
+                        </label>
+                        <h7>{{beneficiario.colonia}}</h7>
+                    </div>
+                    <div class="col s4 grey lighten-4">
+                        <label for="first_name">
+                            <h6>Calle</h6>
+                        </label>
+                        <h7>{{beneficiario.calle}}</h7>
+                    </div>
+                    <div class="col s4 grey lighten-4">
+                        <label for="first_name">
+                            <h6>CP</h6>
+                        </label>
+                        <h7>{{beneficiario.cp}}</h7>
+                    </div>
+                    
+                    <div class="col s12 grey lighten-4">
+                        
+                            <label for="first_name">
+                                <h6>CURP</h6>
+                            </label>
+                            <h7>{{beneficiario.curp}}</h7>
+                    </div>
+
+                    <div class="col s4 grey lighten-4">
+                    
+                        <label for="first_name">
+                            <h6>RFC</h6>
+                        </label>
+                        <h7>{{beneficiario.rfc}}</h7>
+                    </div>
+
+                    <div class="col s4 grey lighten-4">
+                        
+                            <label for="first_name">
+                                <h6>Municipio</h6>
+                            </label>
+                            <h7 id="city">{{beneficiario.municipio_id}}</h7>
+                    </div>
+                    
+                    <div class="col s4 grey lighten-4">
+                            <label for="first_name">
+                                <h6>Zona Geográfica</h6>
+                            </label>
+                            <h7>{{beneficiario.zonageografica}}</h7>
+                            <!--Canalización -->
+                        
+                    </div>
+                    <div class="col s12 grey lighten-4 center">
+                    
+                        <label for="first_name">
+                            <h6 class="center">Proyecto</h6>
+                        </label> 
+                        <!--<h7 class="center" id="project">{{beneficiario.proyecto_id}}</h7> <br>
+                        <h7 class="center" id="project">{{beneficiario.proyecto_id}}</h7> <br>
+                        <label for="first_name">-->
+                            <ul class="center">
+                                {{#each beneficiario.projects}}
+                                <li class="center"> - <a class="center" href="/proyectos/{{pnombre}}">{{nombre}}</a>  </li>
+                                {{/each}}
+                            </ul>
+                            
+                                
+                    </div>
+                </div>
+                
+            
+        </div>
+        <script>
+            
+            
+            /*if({{ extranjero }}){
+                $('#checkExtranjero').value("Si");
+                //document.getElementById("checkExtranjero").value = "Si";
+            } else{
+                //document.getElementById("checkExtranjero").value = "No";
+                $('#checkExtranjero').value("No");
+            }*/
+            document.getElementById("checkIndigente").value = {{ beneficiario.indigente }};
+            document.getElementById("checkIndigente").value = {{beneficiario.indigente}};
+
+            if({{ beneficiario.extranjero }}){
+                document.getElementById("checkExtranjero").textContent = "Si";
+            } else{
+                document.getElementById("checkExtranjero").textContent = "No";
+            }
+            if ({{ beneficiario.indigente }}) {
+                    document.getElementById("checkIndigente").textContent ="Si";
+                } else {
+                    document.getElementById("checkIndigente").textContent ="No";
+                }
+
+            $.getJSON("/dashboard/beneficiarios/json/" + location.pathname.split("/").pop(), data => {
+                    const m = data.municipio;
+
+                    $("#city").text(m.nombre+ ", "+m.estado);
+
+                })
+
+
+        
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="col s12">
+    <div class="row">
+        <h3 class="card-panel red darken-1 center hoverable"><span class="white-text">Beneficiario</span></h3>
+            <h3 class="center">{{beneficiario.nombre}} {{beneficiario.apellido}}</h3>
+        
+                <h4>Informacion Personal</h4>
+        
+    </div>    
+            <div class="row">
+            
+            <div class="divider"></div>
+            <div class="col s12">
+                            <blockquote>
+                                <div class="col s6">
+                                    <label for="first_name">
+                                        <h6>CURP</h6>
+                                    </label>
+                                    <p>{{beneficiario.curp}}</p>
+                                </div>
+                                <div class="col s6" class="section">
+                                    <label for="first_name">
+                                        <h6>Sexo</h6>
+                                    </label>
+                                    <p>{{beneficiario.sexo}}</p>
+                                </div>
+                                <div class="section">.</div>
+                            </blockquote>
+            </div>
+
+
+                
+                <div class="divider"></div>
+                <div class="col s12">
+                    <h5>Fecha de nacimiento</h5>
+                    <p>{{beneficiario.nacimiento}}</p>
+                </div>
+                <div class="section"> .</div>
+                <div class="divider"></div>
+            
+                <div class="col s6">
+                    <h5>Direccion</h5>
+                    <p>{{beneficiario.direccion}}</p>
+                </div>
+            
+                <div class="divider"></div>
+                <div class="col s6">
+                    <h5>Estado Civil</h5>
+                    <p>{{beneficiario.estadocivil}}</p>
+                </div>
+                <div class="section">.</div>
+                <div class="divider"></div>
+                <div class="col s12">
+                    <h5>Profesion</h5>
+                    <p>{{beneficiario.profesion}}</p>
+                </div>
+                <br>
+
+
+</div>-->
+
+
+
+        
+        
+    

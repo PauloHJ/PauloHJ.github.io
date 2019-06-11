@@ -1,0 +1,21 @@
+<h1>Nueva noticia</h1>
+
+<div class="row">
+      <form class="col s12" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="titulo" name="titulo" type="text" data-length="50" required="required">
+            <label for="titulo">Titulo</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="contenido" name="contenido" class="materialize-textarea" required="required"></textarea>
+            <label for="contenido">Contenido del post</label>
+          </div>
+        </div>
+        <input type="file" name="upload" id="upload" required="required">
+        <br>
+        <button type="submit">Guardar</button>
+      </form>
+    </div>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    {{#if title}}
+      {{title}}
+    {{else}}
+      Cáritas de Querétaro 
+    {{/if}}
+  </title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> --}}
+  <link rel="stylesheet" href="/stylesheets/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://caritasqro.blob.core.windows.net/javascripts/init.js"></script>
+  <link href="https://caritasqro.blob.core.windows.net/stylesheets/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="navbar-fixed">
+    <nav class="red darken-2 navbar-fixed"  role="navigation">
+      <div class="nav-wrapper container red darken-2">
+        <a id="logo-container" href="/" class="brand-logo valign-wrapper"><img src="https://caritasqro.blob.core.windows.net/images/logoHeader.png" alt="Logo"></a>
+        <ul class="right hide-on-med-and-down ">
+          <li><a class="white-text" href="/">Inicio</a></li>
+          <li><a class="white-text" href="/proyectos">Proyectos</a></li>
+          <li><a class="white-text" href="/blog">Noticias</a></li>
+          <li><a class="white-text" href="/contenedor">Contenedores</a></li>
+          {{#if session.user}}
+            <li><a class="white-text" href="/dashboard">Perfil</a></li>
+            <li><a class="white-text" href="/logout">Salir</a></li>
+          {{else}}
+            <li><a class="white-text" href="/registro">Regístrate</a></li>
+            <li><a class="white-text" href="/login">Iniciar Sesión</a></li>
+          {{/if}}
+        </ul>
+        <!--Menú Para que sea flexible en pantallas móviles-->
+        <ul id="nav-mobile" class="sidenav red darken-1">
+          <li><a class="white-text" href="/">Inicio</a></li>
+          <li><a class="white-text" href="/proyectos">Proyectos</a></li>
+          <li><a class="white-text" href="/blog">Noticias</a></li>
+          <li><a class="white-text" href="/contenedor">Contenedores</a></li>
+
+          {{#if session.user}}
+            <li><a class="white-text" href="/dashboard">Perfil</a></li>
+            <li><a class="white-text" href="/logout">Salir</a></li>
+          {{else}}
+            <li><a class="white-text" href="/registro">Regístrate</a></li>
+            <li><a class="white-text" href="/login">Iniciar Sesión</a></li>
+          {{/if}}
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+ 
+  <section id="main">
+    {{{body}}}
+  </section>
+  
+  <footer class="page-footer grey darken-3">
+    <div class="container grey darken-3">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Cáritas Querétaro: </h5>
+          <p class="grey-text text-lighten-4">
+              Vergara #35-A Col. Centro <br>
+              Tels: 212 33 19 / 212 35 96 <br>
+              Horario de oficinas: Lunes a <br>
+              Viernes de 8am a 4pm <br>
+              <a href="/documentos">Documentos Caritas</a>
+          </p>
+
+        </div>
+        <div class="col l3 s12">
+          
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Buscanos en:</h5>
+          <ul>
+            <li><a class="white-text" target="_blank" href="https://www.youtube.com/channel/UCGaIjObT-pEsHixDPC-B7LA"><img src="https://caritasqro.blob.core.windows.net/images/001-youtube.png" alt="Youtube" height="25px" width="25px">  Youtube</a></li>
+            <li><a class="white-text" target="_blank" href="https://vimeo.com/user21294880"><img src="https://caritasqro.blob.core.windows.net/images/007-vimeo.png" alt="Vimeo" height="25px" width="25px">  Vimeo</a></li>
+            <li><a class="white-text" target="_blank" href="https://twitter.com/CaritasQroIAP"><img src="https://caritasqro.blob.core.windows.net/images/008-twitter.png" alt="Twitter" height="25px" width="25px">  Twitter</a></li>
+            <li><a class="white-text" target="_blank" href="https://www.facebook.com/CaritasdeQueretaro"><img src="https://caritasqro.blob.core.windows.net/images/036-facebook.png" alt="facebook" height="25px" width="25px"> Facebook</a></li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by <a class="brown-text text-lighten-3" href="#">WeByte</a> Iconos diseñados por <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a
+                    href="https://www.flaticon.es/" title="Flaticon">www.flaticon.com</a> con licencia <a
+                    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        </div>
+    </div>
+    
+  </footer>
+
+
+</body>
+</html>

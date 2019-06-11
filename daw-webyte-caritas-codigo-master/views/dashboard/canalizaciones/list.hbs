@@ -1,0 +1,27 @@
+<h1>Listado de canalizaciones</h1>
+
+<a class="waves-effect waves-light btn-large" href="/dashboard/canalizaciones/nueva">Nueva</a>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Contacto</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  {{#each canalizaciones}}
+    <tr>
+      <td>{{contacto}}</td>
+      <td>{{telefono}}</td>
+      <td>{{direccion}}</td>
+      <td></td>
+      <td><a href="/dashboard/canalizaciones/modificar/{{id}}" class="waves-effect red darken-1 btn">Editar</a></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,235 @@
+<h1>Modificar beneficiario</h1>
+
+<form method="POST">
+  <div class="row">
+    
+    <div class="input-field col m6 s12">
+      <input id="name" value="{{nombre}}" type="text" class="validate" name="name">
+      <label for="name">Nombre</label>
+    </div>
+
+    <div class="input-field col m6 s12">
+      <input id="last_name" value="{{apellido}}" type="text" class="validate"
+        name="lastname">
+      <label for="last_name">Apellido</label>
+    </div>
+
+    <div class="input-field col m6 s12">
+      <label>
+        <input type="checkbox" value="{{indigente}}" name="checkIndigena" id="checkIndigena" />
+        <span>¿Es indigente?</span>
+      </label>
+    </div>
+    <div class="input-field col m6 s12">
+      <label>
+        <input type="checkbox" name="checkExtrangero" id="checkExtrangero" />
+        <span>¿Es extranjero?</span>
+      </label>
+    </div>
+
+    <div class="input-field col m6 s12 margin-top">
+      <select name="state" value="{{municipio_id}}" id="state" class="">
+        <option value="" disabled selected>Seleccione...</option>
+        <option value='AGUASCALIENTES'>AGUASCALIENTES</option>
+        <option value='BAJA CALIFORNIA'>BAJA CALIFORNIA</option>
+        <option value='BAJA CALIFORNIA SUR'>BAJA CALIFORNIA SUR</option>
+        <option value='CAMPECHE'>CAMPECHE</option>
+        <option value='CHIAPAS'>CHIAPAS</option>
+        <option value='CHIHUAHA'>CHIHUAHA</option>
+        <option value='CDMX'>CDMX</option>
+        <option value='COAHUILA'>COAHUILA</option>
+        <option value='COLIMA'>COLIMA</option>
+        <option value='DURANGO'>DURANGO</option>
+        <option value='GUANAJUATO'>GUANAJUATO</option>
+        <option value='GUERRERO'>GUERRERO</option>
+        <option value='HIDALGO'>HIDALGO</option>
+        <option value='JALISCO'>JALISCO</option>
+        <option value='EDOMEX'>EDOMEX</option>
+        <option value='MICHOACAN'>MICHOACAN</option>
+        <option value='MORELOS'>MORELOS</option>
+        <option value='NAYARIT'>NAYARIT</option>
+        <option value='NUEVO LEON'>NUEVO LEON</option>
+        <option value='OAXACA'>OAXACA</option>
+        <option value='PUEBLA'>PUEBLA</option>
+        <option value='QUERETARO'>QUERETARO</option>
+        <option value='QUINTANA ROO'>QUINTANA ROO</option>
+        <option value='SAN LUIS POTOSI'>SAN LUIS POTOSI</option>
+        <option value='SINALOA'>SINALOA</option>
+        <option value='SONORA'>SONORA</option>
+        <option value='TABASCO'>TABASCO</option>
+        <option value='TAMAULIPAS'>TAMAULIPAS</option>
+        <option value='TLAXCALA'>TLAXCALA</option>
+        <option value='VERACRUZ'>VERACRUZ</option>
+        <option value='YUCATAN'>YUCATAN</option>
+        <option value='ZACATECAS'>ZACATECAS</option>
+
+      </select>
+      <label class="active">Estado</label>
+    </div>
+    <div class="input-field col m6 s12 margin-top" >
+      <select name="city" id="city" class="">
+      </select>
+      <label class="active">Municipio</label>
+    </div>
+
+    <div class="input-field col m6 s12 margin-top" >
+      <select value="{{zonageografica}}" name="zona" id="zona" class="">
+        <option value="URBANA">Urbana</option>
+        <option value="RURAL">Rural</option>
+      </select>
+      <label class="active">Zona Geográfica</label>
+    </div>
+  
+    <div class="input-field col m6 s12">
+      Fehca de Nacimiento
+      <input value='{{dateFormat nacimiento "YYYY-MM-DD"}}' type="date" name="nacimiento" id="nacimiento">
+    </div>
+    <div class="input-field col m6 s12">
+      <input id="calle" value="{{calle}}" name="calle"type="text" class="validate">
+      <label for="calle">Calle</label>
+    </div>
+    
+    <div class="input-field col m6 s12">
+      <input id="numero" value="{{numero}}" name="numero"type="text" class="validate">
+      <label for="numero">Número</label>
+    </div>
+    
+    <div class="input-field col m6 s12">
+      <input value="{{cp}}" id="cp" name="cp"type="text" class="validate">
+      <label for="cp">Código Postal</label>
+    </div>
+    
+    <div class="input-field col m6 s12">
+      <input id="colonia" value="{{colonia}}" name="colonia"type="text" class="validate">
+      <label for="colonia">Colonia</label>
+    </div>
+
+    <div class="input-field col m6 s12">
+      <input value="{{curp}}" id="curp" name="curp"type="text" class="validate">
+      <label for="curp">CURP</label>
+    </div>
+    <div class="input-field col m6 s12">
+      <input id="rfc" value="{{rfc}}" type="text" class="validate" name="rfc">
+      <label for="rfc">RFC</label>
+    </div>
+    <div class="input-field col m6 s12">
+      <input id="profesion" value="{{profesion}}" type="text" class="validate"
+        name="profesion">
+      <label for="profesion">Profesion</label>
+    </div>
+
+    <div class="input-field col m6 s12">
+      <select value="" id="sexo" name="sexo">
+        <option value="" disabled selected>Seleccione...</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+      <label for="first_name" class="active">Género</label>
+    </div>
+    <div class="input-field col m6 s12">
+      <select id="estadoCivil" name="estadoCivil" class="">
+        <option value="" disabled selected>Seleccione...</option>
+        <option value="CASADO">Casado</option>
+        <option value="DIVORCIADO">Divorciado</option>
+        <option value="UNIONLIBRE">Union Libre</option>
+        <option value="SOLTERO">Soltero</option>          
+      </select>
+      <label for="estadoCivil" class="active">Estado Civil</label>
+    </div>
+    <div class="input-field col m6 s12">
+      <select id="canalizacion" name="canalizacion" class="">
+        <option  disabled selected>Seleccione...</option>   
+        {{#each bene}}
+        <option value="{{id}}">{{contacto}}</option>
+        {{/each}}      
+      </select>
+      <label for="canalizacion" class="active">Canalización</label>
+    </div>
+     <div class="input-field col m6 s12">
+      <select multiple id="proyectos" name="proyectos" >
+        <option  value="" disabled >Seleccione...</option>   
+        {{#each proj}}
+        <option value="{{id}}">{{nombre}}</option>
+        {{/each}}      
+      </select>
+      <label for="proyectos" class="active">Proyectos</label>
+    </div>
+
+  </div>
+
+  
+  <button class="btn waves-effect waves-light red darken-2" type="submit" name="action">Registrar</button>
+
+</form>
+
+
+  <!--Testing JS for the cities-->
+  <script src="/javascripts/mx-data.js"></script>
+  <script src="/javascripts/new-proj-form.js"></script>
+  <script>
+    let benef;
+    let projectIds = [];
+
+    function geoPopulate(){
+      const stateShort = benef.municipio.estado;
+      const state = map[stateShort];
+
+      //change value
+      $("#state").val(state);
+      //populate cities
+      //get the cities
+      const cities = mx[$('#state').val()];
+      //we have the cities
+      //clear the select
+      $('#city').empty();
+      //populate the cities
+      for(const c in cities){
+          const city = cities[c];
+          $('#city').append('<option value="'+city.id+'">'+city.nombre+'</option>');
+      }
+
+      //set the correct value
+
+      $("#city").val(benef.municipio.id);
+
+
+    }
+
+    console.log("{{sexo}}");
+    $("#sexo option[value={{sexo}}]").attr('selected','selected');
+    console.log(    $("#sexo option[value={{sexo}}]").val())
+    document.getElementById("estadoCivil").value = "{{estadocivil}}";
+    document.getElementById("nacimiento").value = "{{dateFormat nacimiento "YYYY-MM-DD"}}";
+    document.getElementById("checkExtrangero").checked = {{extranjero}};
+    document.getElementById("checkIndigena").checked = {{indigente}};
+    $("#canalizacion").val({{canalizacion_id}});
+      
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkIndigena = $("#checkIndigena");
+      checkIndigena.on("click", () => {
+        if(checkIndigena.is(':checked')) {
+          $('#state').prop('disabled', true);
+          $('#city').prop('disabled', true);
+        } else {
+          $('#state').prop('disabled', false);
+          $('#city').prop('disabled', false); 
+        }
+      });
+    $('select').formSelect();
+    $.getJSON('/dashboard/beneficiarios/json/'+location.pathname.split("/").pop(),data =>{
+      console.log(data);
+      benef = data;
+      geoPopulate();
+      
+      $('select').formSelect();
+
+      benef.projects.forEach(p => {projectIds.push(p.proyecto_id)});
+
+
+      $('#proyectos').val(projectIds);
+
+    })
+
+    });
+  </script>
